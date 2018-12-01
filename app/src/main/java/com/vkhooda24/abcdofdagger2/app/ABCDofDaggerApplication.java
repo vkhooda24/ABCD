@@ -26,14 +26,8 @@ public class ABCDofDaggerApplication extends Application implements HasActivityI
     public void onCreate() {
         super.onCreate();
 
-        //1st Approach:
-//        DaggerAppComponent.builder().build().inject(this);
-
-        /*This line equivalent to below line. create() returns new Builder().build()*/
-//        DaggerAppComponent.create().inject(this);
-
-        //2nd Approach:
-        DaggerAppComponent.builder().appBuilder(this).buildGraph().injectApplication(this);
+        //3rd Approach:
+        DaggerAppComponent.builder().create(this).inject(this);
 
     }
 

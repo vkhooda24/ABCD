@@ -25,18 +25,8 @@ import dagger.android.support.AndroidSupportInjectionModule;
 )
 public interface AppComponent extends AndroidInjector<ABCDofDaggerApplication> {
 
-    /*1st Approach: Empty interface AppComponent*/
-
-    //2nd Approach:
+    //3rd Approach:
 
     @Component.Builder
-    interface AppBuilder {
-        @BindsInstance
-        AppBuilder appBuilder(ABCDofDaggerApplication application);
-
-        AppComponent buildGraph();
-    }
-
-    void injectApplication(ABCDofDaggerApplication application);
-
+    abstract class Builder extends AndroidInjector.Builder<ABCDofDaggerApplication>{ }
 }
