@@ -3,11 +3,6 @@ package com.vkhooda24.abcdofdagger2.app;
 import android.app.Activity;
 import android.app.Application;
 import android.support.v4.app.Fragment;
-import android.util.Log;
-
-import com.vkhooda24.abcdofdagger2.dagger.AppComponent;
-import com.vkhooda24.abcdofdagger2.dagger.DaggerAppComponent;
-import com.vkhooda24.abcdofdagger2.viewmodel.abstractviewmodel.AAbstractViewModel;
 
 import javax.inject.Inject;
 
@@ -29,7 +24,20 @@ public class ABCDofDaggerApplication extends Application implements HasActivityI
     public void onCreate() {
         super.onCreate();
 
-        //Get injected object from component
+        //1st Approach:
+//        DaggerAppComponent.builder().build().inject(this);
+
+        /*This line equivalent to below line. create() returns new Builder().build()*/
+//        DaggerAppComponent.create().inject(this);
+
+        //2nd Approach:
+//        DaggerAppComponent.builder().appBuilder(this).buildGraph().injectApplication(this);
+
+        //3rd Approach:
+//        DaggerAppComponent.builder().create(this).inject(this);
+
+        /*
+        //Get any injected object from component
         AppComponent appComponent = DaggerAppComponent.builder().build();
         appComponent.inject(this);
 
@@ -37,7 +45,7 @@ public class ABCDofDaggerApplication extends Application implements HasActivityI
         //Access any method of injected object class
         String name = aAbstractViewModel.getName();
         Log.d(TAG, name);
-
+        */
 
     }
 
