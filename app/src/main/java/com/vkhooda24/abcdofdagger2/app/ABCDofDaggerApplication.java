@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.app.Application;
 import android.support.v4.app.Fragment;
 
+import com.vkhooda24.abcdofdagger2.dagger.AppComponent;
+import com.vkhooda24.abcdofdagger2.dagger.DaggerAppComponent;
+
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjector;
@@ -25,7 +28,7 @@ public class ABCDofDaggerApplication extends Application implements HasActivityI
         super.onCreate();
 
         //1st Approach:
-//        DaggerAppComponent.builder().build().inject(this);
+        DaggerAppComponent.builder().build().inject(this);
 
         /*This line equivalent to below line. create() returns new Builder().build()*/
 //        DaggerAppComponent.create().inject(this);
@@ -46,6 +49,7 @@ public class ABCDofDaggerApplication extends Application implements HasActivityI
         String name = aAbstractViewModel.getName();
         Log.d(TAG, name);
         */
+
 
     }
 

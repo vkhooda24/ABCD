@@ -16,11 +16,10 @@ import dagger.android.support.AndroidSupportInjectionModule;
         modules = {
                 AModule.class,
                 BModule.class,
-                CModule.class,
-                DModule.class,
                 ActivityModule.class,
+                AppSubComponentModule.class,
                 AndroidInjectionModule.class,
-                AndroidSupportInjectionModule.class
+                AndroidSupportInjectionModule.class,
         }
 )
 public interface AppComponent extends AndroidInjector<ABCDofDaggerApplication> {
@@ -50,5 +49,7 @@ public interface AppComponent extends AndroidInjector<ABCDofDaggerApplication> {
     //Get injected object from component
 
     AAbstractViewModel getAAbstractViewModel(); */
+
+    AppSubComponent.AppSubComponentBuilder appSubComponent();
 
 }
